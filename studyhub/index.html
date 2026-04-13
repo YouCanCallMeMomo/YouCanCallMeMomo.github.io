@@ -483,19 +483,6 @@
             padding: 36px 40px;
             line-height: 1.85;
             font-size: 14.5px;
-            max-height: 75vh;
-            overflow-y: auto;
-        }
-
-        .reader-body::-webkit-scrollbar {
-            width: 6px;
-        }
-        .reader-body::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .reader-body::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 10px;
         }
 
         .reader-body h1 { font-size: 26px; margin: 28px 0 14px; color: var(--accent-blue); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; font-weight: 800; }
@@ -845,8 +832,17 @@ function openSubject(key) {
             el.onclick = () => openMarkdown(subj.folder, file.name, file.label);
         } else if (file.type === 'pdf') {
             el.onclick = () => openPdf(subj.folder, file.name, file.label);
+        } else if (file.type === 'docx') {
+            el.onclick = () => {
+                const link = document.createElement('a');
+                link.href = subj.folder + '/' + file.name;
+                link.download = file.name;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
         } else {
-            el.onclick = () => alert('File Word (.docx) tidak bisa ditampilkan di browser.\nSilakan buka langsung dari folder:\n\nc:\\SEMESTER4\\' + subj.folder + '\\' + file.name);
+            el.onclick = () => alert('Jenis file tidak dikenal.');
         }
 
         fileListEl.appendChild(el);
@@ -858,6 +854,7 @@ function openSubject(key) {
 }
 
 function goHome() {
+            document.querySelector('.container').style.maxWidth = '1100px';
     document.getElementById('content-viewer').classList.remove('visible');
     document.getElementById('md-reader').classList.remove('visible');
     document.getElementById('home-view').style.display = 'block';
@@ -865,6 +862,7 @@ function goHome() {
 }
 
 function goBackToFiles() {
+            document.querySelector('.container').style.maxWidth = '1100px';
     document.getElementById('md-reader').classList.remove('visible');
     document.getElementById('content-viewer').classList.add('visible');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -918,18 +916,23 @@ function openPdf(folder, filename, label) {
     document.getElementById('content-viewer').classList.remove('visible');
     document.getElementById('reader-filename').textContent = filename;
     
+    // Perluas kontainer untuk memberikan ruang lebih saat melebarkan PPT
+    document.querySelector('.container').style.maxWidth = '100%';
+    
     // Sembunyikan tombol 'Buka Presentasi' karena ini sudah presentasi
     document.getElementById('btn-presentation').style.display = 'none';
 
     const readerBody = document.getElementById('reader-body');
     const filePath = `${folder}/${filename}`;
     
-    // Tampilkan PDF dalam tag iframe untuk mensimulasikan viewer yang bisa digeser-geser
+    // Tampilkan PDF dalam tag iframe dengan resizer horisontal
     readerBody.innerHTML = `
         <div style="text-align: center; margin-bottom: 15px; color: var(--accent-purple); font-weight: 600;">
-            <p>💡 Geser untuk mengganti slide (scroll ke bawah)</p>
+            <p>💡 Geser untuk mengganti slide (scroll ke bawah) | ↔️ Tarik pinggiran kotak untuk mengatur lebar layar</p>
         </div>
-        <iframe src="${filePath}" width="100%" height="70vh" style="min-height: 500px; border:none; border-radius:12px; background: white;"></iframe>
+        <div style="resize: horizontal; overflow: hidden; width: 70%; max-width: 100%; min-width: 300px; margin: 0 auto; border: 2px dashed var(--border-color); border-radius: 12px; padding: 4px; background: var(--bg-card);">
+            <iframe src="${filePath}" style="width: 100%; height: 80vh; min-height: 500px; border:none; border-radius:8px; background: white; display: block;"></iframe>
+        </div>
     `;
 
     document.getElementById('md-reader').classList.add('visible');
