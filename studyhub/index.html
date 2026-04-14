@@ -580,14 +580,64 @@
         }
 
         /* ========== RESPONSIVE ========== */
-        @media (max-width: 640px) {
-            .subjects-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .subject-card { padding: 18px; }
-            .header-badge { display: none; }
-            .stats-bar { padding: 16px; flex-wrap: wrap; gap: 10px; }
+        @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            .header-content { flex-wrap: wrap; gap: 12px; }
+            .logo-text h1 { font-size: 18px; }
+            .logo-text p { font-size: 11px; }
+            .stats-bar { padding: 16px 12px; flex-wrap: wrap; gap: 12px; justify-content: center; }
             .stat-divider { display: none; }
             .stat-item { width: 45%; }
-            .reader-body { padding: 20px; }
+            .stat-number { font-size: 22px; }
+            .stat-label { font-size: 11px; }
+            .subjects-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+            .subject-card { padding: 16px; }
+            .card-icon { width: 40px; height: 40px; font-size: 18px; margin-bottom: 12px; }
+            .card-title { font-size: 13px; }
+            .card-subtitle { font-size: 11px; }
+            .reader-body { padding: 20px 16px; font-size: 13.5px; }
+            .reader-body h1 { font-size: 20px; }
+            .reader-body h2 { font-size: 17px; }
+            .reader-body h3 { font-size: 14px; }
+            .reader-body pre { padding: 12px; font-size: 11px; }
+            .reader-body pre code { font-size: 11px; }
+            .reader-body table { font-size: 11px; display: block; overflow-x: auto; white-space: nowrap; }
+            .reader-body th, .reader-body td { padding: 6px 8px; }
+            .reader-body img { border-radius: 8px; }
+            .viewer-header { flex-direction: column; gap: 12px; align-items: flex-start; }
+            .viewer-title h2 { font-size: 16px; }
+            .file-item { padding: 12px 14px; }
+            .file-info { gap: 10px; }
+            .file-icon { width: 36px; height: 36px; font-size: 16px; }
+            .file-name { font-size: 13px; }
+            .file-meta { font-size: 10px; }
+            .file-size { font-size: 10px; }
+            .reader-toolbar { flex-direction: column; gap: 10px; align-items: flex-start; }
+            .reader-toolbar-left { width: 100%; }
+            .btn-primary { font-size: 12px; padding: 8px 14px; }
+            .btn-back { font-size: 12px; padding: 6px 12px; }
+        }
+
+        @media (max-width: 480px) {
+            .subjects-grid { grid-template-columns: 1fr; gap: 10px; }
+            .header-badge { display: none; }
+            .logo-icon { width: 40px; height: 40px; font-size: 18px; }
+            .logo-area { gap: 10px; }
+            .stat-item { width: 42%; }
+            .stat-number { font-size: 20px; }
+            .reader-body { padding: 16px 12px; font-size: 13px; line-height: 1.7; }
+            .reader-body h1 { font-size: 18px; margin: 20px 0 10px; }
+            .reader-body h2 { font-size: 15px; margin: 18px 0 8px; }
+            .reader-body pre { padding: 10px; border-radius: 8px; }
+            .reader-body pre code { font-size: 10.5px; }
+            .reader-body table { font-size: 10px; }
+            .reader-body th, .reader-body td { padding: 5px 6px; }
+            .reader-body blockquote { padding: 8px 12px; font-size: 12.5px; }
+            .file-list { gap: 8px; }
+            .viewer-header > div { width: 100%; }
+            .viewer-header > div:last-child { display: flex; flex-wrap: wrap; gap: 8px; }
+            #quiz-viewer .reader-body { padding: 20px 12px !important; }
+            .quiz-option-btn { font-size: 13px !important; padding: 12px !important; }
         }
     </style>
 </head>
@@ -654,8 +704,8 @@
             <div class="subject-card card-teal" onclick="openSubject('sofeng')">
                 <div class="card-icon">⚙️</div>
                 <div class="card-title">Software Engineering</div>
-                <div class="card-subtitle">Kisi-kisi UTS Sofeng Part 1–5 Lengkap</div>
-                <div class="card-badge">📝 UTS • 7 dokumen</div>
+                <div class="card-subtitle">Kisi-kisi + 20 Latihan Study Case + Diagram UML</div>
+                <div class="card-badge">📝 UTS • 8 dokumen + diagram</div>
             </div>
             <div class="subject-card card-purple" onclick="openSubject('softsec')">
                 <div class="card-icon">🛡️</div>
@@ -758,6 +808,7 @@ const subjects = {
         color: 'teal',
         folder: 'SOFENG',
         files: [
+            { name: 'LATIHAN_STUDY_CASE_SOFENG.md', label: '📝 Latihan Study Case (20 Soal + Diagram UML)', type: 'md', size: '48 KB' },
             { name: 'KISI_KISI_UTS_SOFENG_LENGKAP.md', label: 'Kisi-Kisi UTS Lengkap (Semua Part)', type: 'md', size: '66 KB' },
             { name: 'KISI_KISI_UTS_SOFENG_PART1.md', label: 'Part 1 — Pengantar & SDLC', type: 'md', size: '12 KB' },
             { name: 'KISI_KISI_UTS_SOFENG_PART2.md', label: 'Part 2 — Requirements Engineering', type: 'md', size: '8 KB' },

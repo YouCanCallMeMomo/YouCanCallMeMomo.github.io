@@ -512,6 +512,12 @@ Use Cases: Browse Products, Add to Cart, Checkout,
            Manage Products (Admin)
 ```
 
+**Contoh Visualisasi Use Case Diagram:**
+
+![Use Case Diagram — Sistem E-Learning](diagrams/usecase_elearning.png)
+
+![Use Case Diagram — Sistem Rekam Medis](diagrams/usecase_hospital.png)
+
 #### B. Activity Diagram
 Menggambarkan **workflow/alur proses** — langkah-langkah aktivitas.
 
@@ -522,6 +528,10 @@ Menggambarkan **workflow/alur proses** — langkah-langkah aktivitas.
 - **Fork/Join**: parallel activities (thick bar)
 - **Final Node**: titik akhir (circle with ring)
 - **Swimlanes**: partisi per role/aktor
+
+**Contoh Visualisasi Activity Diagram — Proses Checkout:**
+
+![Activity Diagram — Proses Checkout E-Commerce](diagrams/activity_ecommerce.png)
 
 #### C. Class Diagram
 Menggambarkan **struktur statis** — class, atribut, method, dan relasi.
@@ -555,6 +565,12 @@ Menggambarkan **struktur statis** — class, atribut, method, dan relasi.
 - `1..*` — satu atau lebih
 - `n..m` — antara n sampai m
 
+**Contoh Visualisasi Class Diagram:**
+
+![Class Diagram — Sistem Perpustakaan Digital](diagrams/class_library.png)
+
+![Class Diagram — Sistem E-Commerce](diagrams/class_ecommerce.png)
+
 #### D. Sequence Diagram
 Menggambarkan **interaksi objek** dalam urutan waktu.
 
@@ -565,6 +581,10 @@ Menggambarkan **interaksi objek** dalam urutan waktu.
 - **Activation bar**: rectangle di lifeline (menunjukkan objek aktif)
 - **Return message**: panah putus-putus ← 
 - **Alt/Loop/Opt fragments**: untuk conditional dan looping
+
+**Contoh Visualisasi Sequence Diagram — Transfer Banking:**
+
+![Sequence Diagram — Proses Transfer Banking](diagrams/sequence_banking.png)
 
 #### E. State Diagram
 Menggambarkan **state transitions** sebuah objek sepanjang lifecycle-nya.
@@ -580,6 +600,10 @@ Menggambarkan **state transitions** sebuah objek sepanjang lifecycle-nya.
                                   ↓ Cancelled
                               [Cancelled]
 ```
+
+**Contoh Visualisasi State Diagram — Lifecycle Order:**
+
+![State Diagram — Lifecycle Order](diagrams/state_order.png)
 
 ---
 
@@ -799,6 +823,10 @@ Data → [Filter A] → [Filter B] → [Filter C] → Output
 - **Kelebihan**: scalability per service, technology agnostic, fault isolation
 - **Kekurangan**: kompleksitas tinggi (network, monitoring, distributed transactions)
 - **Contoh**: Netflix, Grab, Gojek
+
+**Contoh Visualisasi Microservices Architecture:**
+
+![Microservices Architecture — E-Commerce Platform](diagrams/architecture_microservice.png)
 
 #### 6. Model-View-Controller (MVC)
 ```
