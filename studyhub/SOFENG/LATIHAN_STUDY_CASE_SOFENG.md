@@ -361,7 +361,7 @@ Detail internal (tipe membership, riwayat workout) disembunyikan. Modul lain han
 ## Soal 2.3 — Platform E-Learning Kampus "BinusPlus"
 
 ### Referensi Diagram — Use Case E-Learning:
-![Use Case Diagram — Sistem E-Learning Universitas](diagrams/usecase_elearning.png)
+![Use Case Diagram — Sistem E-Learning Universitas](SOFENG/diagrams/usecase_elearning.png)
 
 ### Case Study:
 > BINUS ingin mengembangkan platform e-learning **BinusPlus** yang menggantikan sistem lama. Fitur: video streaming materi, kuis interaktif, forum diskusi, dan grading otomatis. Pengguna: mahasiswa (25.000+), dosen (500+), dan admin akademik.
@@ -399,7 +399,7 @@ Detail internal (tipe membership, riwayat workout) disembunyikan. Modul lain han
 ## Soal 2.4 — Sistem Informasi Rekam Medis "SIRME"
 
 ### Referensi Diagram — Use Case Rumah Sakit:
-![Use Case Diagram — Sistem Informasi Rekam Medis (SIRME)](diagrams/usecase_hospital.png)
+![Use Case Diagram — Sistem Informasi Rekam Medis (SIRME)](SOFENG/diagrams/usecase_hospital.png)
 
 ### Case Study:
 > Rumah Sakit "Sehat Selalu" ingin membangun **SIRME** (Sistem Informasi Rekam Medis Elektronik). Pengguna: dokter, perawat, apoteker, dan admin. Data pasien sangat sensitif (dilindungi UU Kesehatan). Sistem harus terintegrasi dengan BPJS Kesehatan.
@@ -508,7 +508,7 @@ function generateBill(patient, data) { /* billing logic */ }
 ## Soal 3.1 — Perpustakaan Digital "DigiLib"
 
 ### Referensi Diagram — Class Diagram Perpustakaan:
-![Class Diagram — Sistem Perpustakaan Digital](diagrams/class_library.png)
+![Class Diagram — Sistem Perpustakaan Digital](SOFENG/diagrams/class_library.png)
 
 ### Case Study:
 > Kampus BINUS ingin membangun **Perpustakaan Digital "DigiLib"** yang memungkinkan mahasiswa meminjam e-book, dosen mengupload materi, dan admin mengelola katalog. Buku digital dipinjam maksimal 14 hari, bisa diperpanjang 1x. Sistem harus mencatat riwayat peminjaman dan mengirim notifikasi saat mendekati jatuh tempo.
@@ -568,10 +568,10 @@ class LoanService {
 ## Soal 3.2 — Sistem E-Commerce "GoMart"
 
 ### Referensi Diagram — Class Diagram E-Commerce:
-![Class Diagram — GoMart E-Commerce](diagrams/class_ecommerce.png)
+![Class Diagram — GoMart E-Commerce](SOFENG/diagrams/class_ecommerce.png)
 
 ### Referensi Diagram — Activity Diagram Checkout:
-![Activity Diagram — Proses Checkout E-Commerce](diagrams/activity_ecommerce.png)
+![Activity Diagram — Proses Checkout E-Commerce](SOFENG/diagrams/activity_ecommerce.png)
 
 ### Case Study:
 > Platform e-commerce **GoMart** ingin menambah fitur multi-payment (GoPay, OVO, Bank Transfer, COD). Selain itu, proses checkout harus terstruktur dengan validasi stok, perhitungan total, dan pengiriman paralel dengan notifikasi email.
@@ -646,7 +646,7 @@ class Order {
 ## Soal 3.3 — Sistem Banking Online "MyBank"
 
 ### Referensi Diagram — Sequence Diagram Transfer:
-![Sequence Diagram — Proses Transfer Banking](diagrams/sequence_banking.png)
+![Sequence Diagram — Proses Transfer Banking](SOFENG/diagrams/sequence_banking.png)
 
 ### Case Study:
 > Bank "SecureBank" ingin membangun sistem **online banking** dengan fitur transfer, cek saldo, dan mutasi. Keamanan adalah prioritas utama karena menyangkut uang nasabah.
@@ -731,7 +731,7 @@ LSP: Subclass harus bisa menggantikan parent class tanpa breaking behavior.
 **1. State Diagram — Project Lifecycle:**
 
 ### Referensi Diagram — State Diagram Order:
-![State Diagram — Lifecycle Order](diagrams/state_order.png)
+![State Diagram — Lifecycle Order](SOFENG/diagrams/state_order.png)
 
 *(Adaptasi untuk Project SkillHub)*
 
@@ -885,7 +885,7 @@ class VIPQueue implements QueueStrategy {
 ## Soal 4.1 — Platform Streaming "IndoFlix"
 
 ### Referensi Diagram — Microservices Architecture:
-![Microservices Architecture — E-Commerce Platform](diagrams/architecture_microservice.png)
+![Microservices Architecture — E-Commerce Platform](SOFENG/diagrams/architecture_microservice.png)
 
 ### Case Study:
 > Startup **IndoFlix** ingin membangun platform **video streaming** lokal untuk konten Indonesia. Fitur: browse katalog film, streaming video, rekomendasi personalisasi, subscription management, dan review/rating. Target: 500.000 user di tahun pertama, 5 juta di tahun ketiga.

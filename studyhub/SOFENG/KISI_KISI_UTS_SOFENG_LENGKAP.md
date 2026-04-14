@@ -514,9 +514,9 @@ Use Cases: Browse Products, Add to Cart, Checkout,
 
 **Contoh Visualisasi Use Case Diagram:**
 
-![Use Case Diagram — Sistem E-Learning](diagrams/usecase_elearning.png)
+![Use Case Diagram — Sistem E-Learning](SOFENG/diagrams/usecase_elearning.png)
 
-![Use Case Diagram — Sistem Rekam Medis](diagrams/usecase_hospital.png)
+![Use Case Diagram — Sistem Rekam Medis](SOFENG/diagrams/usecase_hospital.png)
 
 #### B. Activity Diagram
 Menggambarkan **workflow/alur proses** — langkah-langkah aktivitas.
@@ -531,7 +531,7 @@ Menggambarkan **workflow/alur proses** — langkah-langkah aktivitas.
 
 **Contoh Visualisasi Activity Diagram — Proses Checkout:**
 
-![Activity Diagram — Proses Checkout E-Commerce](diagrams/activity_ecommerce.png)
+![Activity Diagram — Proses Checkout E-Commerce](SOFENG/diagrams/activity_ecommerce.png)
 
 #### C. Class Diagram
 Menggambarkan **struktur statis** — class, atribut, method, dan relasi.
@@ -567,9 +567,9 @@ Menggambarkan **struktur statis** — class, atribut, method, dan relasi.
 
 **Contoh Visualisasi Class Diagram:**
 
-![Class Diagram — Sistem Perpustakaan Digital](diagrams/class_library.png)
+![Class Diagram — Sistem Perpustakaan Digital](SOFENG/diagrams/class_library.png)
 
-![Class Diagram — Sistem E-Commerce](diagrams/class_ecommerce.png)
+![Class Diagram — Sistem E-Commerce](SOFENG/diagrams/class_ecommerce.png)
 
 #### D. Sequence Diagram
 Menggambarkan **interaksi objek** dalam urutan waktu.
@@ -584,7 +584,7 @@ Menggambarkan **interaksi objek** dalam urutan waktu.
 
 **Contoh Visualisasi Sequence Diagram — Transfer Banking:**
 
-![Sequence Diagram — Proses Transfer Banking](diagrams/sequence_banking.png)
+![Sequence Diagram — Proses Transfer Banking](SOFENG/diagrams/sequence_banking.png)
 
 #### E. State Diagram
 Menggambarkan **state transitions** sebuah objek sepanjang lifecycle-nya.
@@ -603,7 +603,7 @@ Menggambarkan **state transitions** sebuah objek sepanjang lifecycle-nya.
 
 **Contoh Visualisasi State Diagram — Lifecycle Order:**
 
-![State Diagram — Lifecycle Order](diagrams/state_order.png)
+![State Diagram — Lifecycle Order](SOFENG/diagrams/state_order.png)
 
 ---
 
@@ -826,7 +826,7 @@ Data → [Filter A] → [Filter B] → [Filter C] → Output
 
 **Contoh Visualisasi Microservices Architecture:**
 
-![Microservices Architecture — E-Commerce Platform](diagrams/architecture_microservice.png)
+![Microservices Architecture — E-Commerce Platform](SOFENG/diagrams/architecture_microservice.png)
 
 #### 6. Model-View-Controller (MVC)
 ```
