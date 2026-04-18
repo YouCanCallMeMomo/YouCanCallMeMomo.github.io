@@ -672,7 +672,7 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-            <div class="stat-number purple">20</div>
+            <div class="stat-number purple">23</div>
             <div class="stat-label">Dokumen Materi</div>
         </div>
         <div class="stat-divider"></div>
@@ -695,7 +695,7 @@
                 <div class="card-icon">🧬</div>
                 <div class="card-title">Computational Biology</div>
                 <div class="card-subtitle">Dogma Sentral, Mutasi, Gene Structure, Bioinformatika, NCBI</div>
-                <div class="card-badge">📝 UTS • 5 dokumen</div>
+                <div class="card-badge">📝 UTS • 8 dokumen</div>
             </div>
             <div class="subject-card card-red" onclick="openSubject('sna')">
                 <div class="card-icon">🖧</div>
@@ -797,9 +797,12 @@ const subjects = {
         files: [
             { name: 'UTS_COMPUTATIONAL_BIOLOGY_MATERI.md', label: 'Materi Utama Biologi Komputasi (Kisi-kisi UTS)', type: 'md', size: '28 KB' },
             { name: 'LATIHAN_SOAL_COMP_BIO.md', label: 'Latihan Soal & Pembahasan (50 Soal)', type: 'md', size: '45 KB' },
-            { name: 'Bioinformatics Database.pptx', label: 'Slide — Bioinformatics Database', type: 'pptx', size: 'Slide' },
-            { name: 'Genomics.pptx', label: 'Slide — Genomics', type: 'pptx', size: 'Slide' },
-            { name: 'Proteomics.pptx', label: 'Slide — Proteomics', type: 'pptx', size: 'Slide' },
+            { name: 'SLIDE_BIOINFORMATICS_DATABASE.md', label: 'Session 9 — Bioinfo. Database', type: 'slide', size: 'Slide' },
+            { name: 'SLIDE_GENOMICS.md', label: 'Session 10 — Genomics', type: 'slide', size: 'Slide' },
+            { name: 'SLIDE_PROTEOMICS.md', label: 'Session 11 — Proteomics', type: 'slide', size: 'Slide' },
+            { name: 'Bioinformatics Database.pptx', label: 'Download PPT — Bioinfo. Database', type: 'pptx', size: 'Slide' },
+            { name: 'Genomics.pptx', label: 'Download PPT — Genomics', type: 'pptx', size: 'Slide' },
+            { name: 'Proteomics.pptx', label: 'Download PPT — Proteomics', type: 'pptx', size: 'Slide' },
         ]
     },
     sna: {
@@ -880,9 +883,9 @@ function openSubject(key) {
     fileListEl.innerHTML = '';
 
     subj.files.forEach(file => {
-        const iconEmoji = file.type === 'md' ? '📄' : file.type === 'docx' ? '📘' : file.type === 'pdf' ? '📊' : file.type === 'pptx' ? '📑' : '🖼️';
+        const iconEmoji = file.type === 'md' ? '📄' : file.type === 'docx' ? '📘' : file.type === 'pdf' || file.type === 'slide' ? '📊' : file.type === 'pptx' ? '📑' : '🖼️';
         const iconClass = file.type;
-        const typeLabel = file.type === 'md' ? 'Markdown' : file.type === 'docx' ? 'Microsoft Word' : file.type === 'pdf' ? 'Slide Presentasi' : file.type === 'pptx' ? 'PowerPoint Slide' : 'Gambar';
+        const typeLabel = file.type === 'md' ? 'Markdown' : file.type === 'docx' ? 'Microsoft Word' : (file.type === 'pdf' || file.type === 'slide') ? 'Slide Presentasi' : file.type === 'pptx' ? 'PowerPoint Slide' : 'Gambar';
 
         const el = document.createElement('div');
         el.className = 'file-item';
@@ -900,7 +903,7 @@ function openSubject(key) {
             </div>
         `;
 
-        if (file.type === 'md') {
+        if (file.type === 'md' || file.type === 'slide') {
             el.onclick = () => openMarkdown(subj.folder, file.name, file.label);
         } else if (file.type === 'pdf') {
             el.onclick = () => openPdf(subj.folder, file.name, file.label);
