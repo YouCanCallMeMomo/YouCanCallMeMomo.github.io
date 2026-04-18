@@ -88,17 +88,17 @@
 **2. Penerapan V-Model:**
 ```
 Requirements Specification ─────────────────── Acceptance Testing (UAT)
-   │ Apa yang diminta Peraturan Menteri?              User absensi di seluruh Indonesia
-   │
+   | Apa yang diminta Peraturan Menteri?              User absensi di seluruh Indonesia
+   |
    System Analysis ──────────────────────── System Testing
-   │ Arsitektur nasional, integrasi biometrik         Test performa 5 juta pegawai
-   │
+   | Arsitektur nasional, integrasi biometrik         Test performa 5 juta pegawai
+   |
       Architectural Design ────────────── Integration Testing
-      │ Modul absensi, modul laporan, API              Test antar modul + antar vendor
-      │
+      | Modul absensi, modul laporan, API              Test antar modul + antar vendor
+      |
          Detailed Design ──────────── Unit Testing
-         │ Algoritma fingerprint matching              Test setiap function
-         │
+         | Algoritma fingerprint matching              Test setiap function
+         |
             Implementation (Coding)
 ```
 
@@ -361,7 +361,7 @@ Detail internal (tipe membership, riwayat workout) disembunyikan. Modul lain han
 ## Soal 2.3 — Platform E-Learning Kampus "BinusPlus"
 
 ### Referensi Diagram — Use Case E-Learning:
-![Use Case Diagram — Sistem E-Learning Universitas](SOFENG/diagrams/usecase_elearning.png)
+![Use Case Diagram - Sistem E-Learning Universitas](SOFENG/diagrams/usecase_elearning.png)
 
 ### Case Study:
 > BINUS ingin mengembangkan platform e-learning **BinusPlus** yang menggantikan sistem lama. Fitur: video streaming materi, kuis interaktif, forum diskusi, dan grading otomatis. Pengguna: mahasiswa (25.000+), dosen (500+), dan admin akademik.
@@ -399,7 +399,7 @@ Detail internal (tipe membership, riwayat workout) disembunyikan. Modul lain han
 ## Soal 2.4 — Sistem Informasi Rekam Medis "SIRME"
 
 ### Referensi Diagram — Use Case Rumah Sakit:
-![Use Case Diagram — Sistem Informasi Rekam Medis (SIRME)](SOFENG/diagrams/usecase_hospital.png)
+![Use Case Diagram - Sistem Informasi Rekam Medis SIRME](SOFENG/diagrams/usecase_hospital.png)
 
 ### Case Study:
 > Rumah Sakit "Sehat Selalu" ingin membangun **SIRME** (Sistem Informasi Rekam Medis Elektronik). Pengguna: dokter, perawat, apoteker, dan admin. Data pasien sangat sensitif (dilindungi UU Kesehatan). Sistem harus terintegrasi dengan BPJS Kesehatan.
@@ -508,7 +508,7 @@ function generateBill(patient, data) { /* billing logic */ }
 ## Soal 3.1 — Perpustakaan Digital "DigiLib"
 
 ### Referensi Diagram — Class Diagram Perpustakaan:
-![Class Diagram — Sistem Perpustakaan Digital](SOFENG/diagrams/class_library.png)
+![Class Diagram - Sistem Perpustakaan Digital](SOFENG/diagrams/class_library.png)
 
 ### Case Study:
 > Kampus BINUS ingin membangun **Perpustakaan Digital "DigiLib"** yang memungkinkan mahasiswa meminjam e-book, dosen mengupload materi, dan admin mengelola katalog. Buku digital dipinjam maksimal 14 hari, bisa diperpanjang 1x. Sistem harus mencatat riwayat peminjaman dan mengirim notifikasi saat mendekati jatuh tempo.
@@ -523,11 +523,11 @@ function generateBill(patient, data) { /* billing logic */ }
 
 | Relasi | Class A | Class B | Tipe | Multiplicity | Penjelasan |
 |--------|---------|---------|------|-------------|------------|
-| Inheritance | Mahasiswa | User | is-a (△──) | - | Mahasiswa IS A User — mewarisi atribut userId, name, email |
-| Inheritance | Dosen | User | is-a (△──) | - | Dosen IS A User — mewarisi atribut dan method login() |
-| Association | Mahasiswa | Book | has/borrows | 1..* ── 0..* | Satu mahasiswa bisa meminjam banyak buku, satu buku bisa dipinjam banyak mahasiswa (berbeda waktu) |
-| Dependency | LoanService | NotificationService | uses (- - ->) | - | LoanService MENGGUNAKAN NotificationService untuk kirim reminder, tapi tidak menyimpan referensi permanen |
-| Association | LoanService | Book | manages | 1 ── 0..* | LoanService mengelola peminjaman buku-buku |
+| Inheritance | Mahasiswa | User | is-a | - | Mahasiswa IS A User — mewarisi atribut userId, name, email |
+| Inheritance | Dosen | User | is-a | - | Dosen IS A User — mewarisi atribut dan method login() |
+| Association | Mahasiswa | Book | has/borrows | 1..* — 0..* | Satu mahasiswa bisa meminjam banyak buku, satu buku bisa dipinjam banyak mahasiswa (berbeda waktu) |
+| Dependency | LoanService | NotificationService | uses | - | LoanService MENGGUNAKAN NotificationService untuk kirim reminder, tapi tidak menyimpan referensi permanen |
+| Association | LoanService | Book | manages | 1 — 0..* | LoanService mengelola peminjaman buku-buku |
 
 **2. Penerapan SOLID:**
 
@@ -568,10 +568,10 @@ class LoanService {
 ## Soal 3.2 — Sistem E-Commerce "GoMart"
 
 ### Referensi Diagram — Class Diagram E-Commerce:
-![Class Diagram — GoMart E-Commerce](SOFENG/diagrams/class_ecommerce.png)
+![Class Diagram - GoMart E-Commerce](SOFENG/diagrams/class_ecommerce.png)
 
 ### Referensi Diagram — Activity Diagram Checkout:
-![Activity Diagram — Proses Checkout E-Commerce](SOFENG/diagrams/activity_ecommerce.png)
+![Activity Diagram - Proses Checkout E-Commerce](SOFENG/diagrams/activity_ecommerce.png)
 
 ### Case Study:
 > Platform e-commerce **GoMart** ingin menambah fitur multi-payment (GoPay, OVO, Bank Transfer, COD). Selain itu, proses checkout harus terstruktur dengan validasi stok, perhitungan total, dan pengiriman paralel dengan notifikasi email.
@@ -627,15 +627,15 @@ class Order {
 
 **2. Analisis Activity Diagram:**
 
-- **Decision Node (Diamond ◇)**:
+- **Decision Node (Diamond):**
   - "Cart Empty?" → Yes: kembali ke Browse Products, No: lanjut ke Checkout
   - "Payment Success?" → Yes: lanjut ke pengiriman, No: goto Payment Failed notification
 
-- **Fork (thick bar ═)**:
+- **Fork (thick bar):**
   - Setelah Checkout: Fork ke **Validate Stock** dan **Calculate Total** (parallel)
   - Setelah Payment Success: Fork ke **Arrange Shipping** dan **Send Confirmation Email** (parallel)
 
-- **Join (thick bar ═)**:
+- **Join (thick bar):**
   - Validate Stock + Calculate Total harus selesai DULU sebelum Process Payment
   - Arrange Shipping + Send Email selesai → Join → Order Complete
 
@@ -646,7 +646,7 @@ class Order {
 ## Soal 3.3 — Sistem Banking Online "MyBank"
 
 ### Referensi Diagram — Sequence Diagram Transfer:
-![Sequence Diagram — Proses Transfer Banking](SOFENG/diagrams/sequence_banking.png)
+![Sequence Diagram - Proses Transfer Banking](SOFENG/diagrams/sequence_banking.png)
 
 ### Case Study:
 > Bank "SecureBank" ingin membangun sistem **online banking** dengan fitur transfer, cek saldo, dan mutasi. Keamanan adalah prioritas utama karena menyangkut uang nasabah.
@@ -660,22 +660,22 @@ class Order {
 **1. Analisis Sequence Diagram:**
 
 **Urutan interaksi:**
-1. `User → :LoginPage`: **enterCredentials()** [synchronous] — User memasukkan username dan password
-2. `:LoginPage → :AuthService`: **authenticate(user, pass)** [synchronous] — LoginPage mengirim credential ke AuthService untuk verifikasi
-3. `:AuthService → :LoginPage`: **return authToken** [return message, dashed] — Jika valid, kembalikan token autentikasi
-4. `:LoginPage → User`: **showDashboard()** [synchronous] — Tampilkan halaman utama
-5. `User → :TransferPage`: **initiateTransfer(amount, dest)** [synchronous] — User memulai transfer
-6. `:TransferPage → :AccountService`: **validateBalance()** [synchronous] — Cek saldo cukup
-7. `:AccountService → :TransferPage`: **return balanceOK** [return] — Konfirmasi saldo cukup
-8. `:TransferPage → :AccountService`: **executeTransfer()** [synchronous] — Eksekusi transfer dana
-9. `:AccountService → :NotificationService`: **sendConfirmation()** [asynchronous] — Kirim notifikasi (tidak perlu menunggu respons)
-10. `:NotificationService → User`: **transferNotification** [asynchronous] — User terima notifikasi berhasil
+1. `User -> :LoginPage`: **enterCredentials()** [synchronous] — User memasukkan username dan password
+2. `:LoginPage -> :AuthService`: **authenticate(user, pass)** [synchronous] — LoginPage mengirim credential ke AuthService untuk verifikasi
+3. `:AuthService -> :LoginPage`: **return authToken** [return message, dashed] — Jika valid, kembalikan token autentikasi
+4. `:LoginPage -> User`: **showDashboard()** [synchronous] — Tampilkan halaman utama
+5. `User -> :TransferPage`: **initiateTransfer(amount, dest)** [synchronous] — User memulai transfer
+6. `:TransferPage -> :AccountService`: **validateBalance()** [synchronous] — Cek saldo cukup
+7. `:AccountService -> :TransferPage`: **return balanceOK** [return] — Konfirmasi saldo cukup
+8. `:TransferPage -> :AccountService`: **executeTransfer()** [synchronous] — Eksekusi transfer dana
+9. `:AccountService -> :NotificationService`: **sendConfirmation()** [asynchronous] — Kirim notifikasi (tidak perlu menunggu respons)
+10. `:NotificationService -> User`: **transferNotification** [asynchronous] — User terima notifikasi berhasil
 
 **2. ISP & LSP pada MyBank:**
 
 **ISP (Interface Segregation Principle):**
 ```java
-// ❌ BAD: Satu interface besar
+// BAD: Satu interface besar
 interface BankAccount {
     void transfer(amount, dest);
     void checkBalance();
@@ -684,7 +684,7 @@ interface BankAccount {
 }
 // Nasabah tabungan biasa TIDAK butuh manageInvestment()!
 
-// ✅ GOOD: Interface terpisah sesuai kebutuhan
+// GOOD: Interface terpisah sesuai kebutuhan
 interface Transferable { void transfer(amount, dest); }
 interface Balanceable { void checkBalance(); }
 interface Loanable { void applyForLoan(); }
@@ -696,7 +696,7 @@ class InvestmentAccount implements Transferable, Balanceable, Investable { ... }
 
 **LSP (Liskov Substitution Principle):**
 ```java
-// ❌ BAD: DepositOnlyAccount extends SavingsAccount
+// BAD: DepositOnlyAccount extends SavingsAccount
 class SavingsAccount {
     void withdraw(double amount) { /* kurangi saldo */ }
 }
@@ -706,7 +706,7 @@ class DepositOnlyAccount extends SavingsAccount {
     }
 }
 
-// ✅ GOOD: Gunakan interface terpisah
+// GOOD: Gunakan interface terpisah
 interface Depositable { void deposit(double amount); }
 interface Withdrawable { void withdraw(double amount); }
 
@@ -731,27 +731,27 @@ LSP: Subclass harus bisa menggantikan parent class tanpa breaking behavior.
 **1. State Diagram — Project Lifecycle:**
 
 ### Referensi Diagram — State Diagram Order:
-![State Diagram — Lifecycle Order](SOFENG/diagrams/state_order.png)
+![State Diagram - Lifecycle Order](SOFENG/diagrams/state_order.png)
 
 *(Adaptasi untuk Project SkillHub)*
 
 ```
-[●] → [Draft] ──post──→ [Published] ──bid_accepted──→ [In Progress]
-                              │                           │
+[*] -> [Draft] --post--> [Published] --bid_accepted--> [In Progress]
+                              |                           |
                           no_bids_30days              milestone_completed
-                              │                           │
-                              ▼                           ▼
+                              |                           |
+                              v                           v
                         [Expired]                  [Under Review]
-                                                        │
-                                                  ┌─────┴─────┐
+                                                        |
+                                                  +-----+-----+
                                             approved      revision_needed
-                                                │              │
-                                                ▼              ▼
+                                                |              |
+                                                v              v
                                           [Completed]    [In Progress]
                                                               (loop)
                               
-[Published] ──client_cancel──→ [Cancelled]
-[In Progress] ──dispute──→ [Disputed] ──resolved──→ [Completed] or [Cancelled]
+[Published] --client_cancel--> [Cancelled]
+[In Progress] --dispute--> [Disputed] --resolved--> [Completed] or [Cancelled]
 ```
 
 **States:**
@@ -768,20 +768,20 @@ LSP: Subclass harus bisa menggantikan parent class tanpa breaking behavior.
 
 **DRY (Don't Repeat Yourself):**
 ```javascript
-// ❌ BAD: Duplikasi validasi email di 3 tempat
+// BAD: Duplikasi validasi email di 3 tempat
 class FreelancerRegistration { validateEmail(email) { /* regex logic */ } }
 class ClientRegistration { validateEmail(email) { /* SAMA persis */ } }
 class ProfileUpdate { validateEmail(email) { /* SAMA persis */ } }
 
-// ✅ GOOD: Satu utility function
+// GOOD: Satu utility function
 class ValidationUtils {
-    static validateEmail(email) { /* regex logic — SATU tempat */ }
+    static validateEmail(email) { /* regex logic - SATU tempat */ }
 }
 ```
 
 **KISS (Keep It Simple, Stupid):**
 ```javascript
-// ❌ BAD: Over-engineered bidding algorithm
+// BAD: Over-engineered bidding algorithm
 class BiddingEngine {
     calculateBidScore(bid) {
         // Machine learning model, neural network, 
@@ -790,18 +790,18 @@ class BiddingEngine {
     }
 }
 
-// ✅ GOOD: Simple sorting
+// GOOD: Simple sorting
 class BiddingEngine {
     rankBids(bids) {
         return bids.sort((a, b) => b.rating - a.rating || a.price - b.price);
-        // Sort by rating desc, then price asc — cukup efektif!
+        // Sort by rating desc, then price asc - cukup efektif!
     }
 }
 ```
 
 **YAGNI (You Aren't Gonna Need It):**
-- ❌ BAD: "Nanti kita mungkin butuh AI matching, jadi bangun ML pipeline sekarang" — belum ada data, belum terbukti dibutuhkan user
-- ✅ GOOD: Bangun fitur berdasarkan kebutuhan saat ini. Jika user feedback menunjukkan manual search kurang efektif, BARU pertimbangkan recommendation engine
+- BAD: "Nanti kita mungkin butuh AI matching, jadi bangun ML pipeline sekarang" — belum ada data, belum terbukti dibutuhkan user
+- GOOD: Bangun fitur berdasarkan kebutuhan saat ini. Jika user feedback menunjukkan manual search kurang efektif, BARU pertimbangkan recommendation engine
 
 ---
 
@@ -825,25 +825,25 @@ class BiddingEngine {
 - **Sistem Antrian** (secondary/system actor)
 
 **Use Cases & Relasi:**
-1. **Daftar Pasien Baru** (Admin) — <<include>> → **Validasi Data KTP**
-2. **Ambil Nomor Antrian** (Pasien) — <<extend>> → **Pilih Jadwal Appointment** (opsional, bisa walk-in)
+1. **Daftar Pasien Baru** (Admin) — <<include>> Validasi Data KTP
+2. **Ambil Nomor Antrian** (Pasien) — <<extend>> Pilih Jadwal Appointment (opsional, bisa walk-in)
 3. **Panggil Pasien** (Sistem Antrian)
 4. **Konsultasi** (Dokter, Pasien)
-5. **Tulis Resep** (Dokter) — <<include>> → **Cek Stok Obat**
+5. **Tulis Resep** (Dokter) — <<include>> Cek Stok Obat
 6. **Ambil Obat** (Pasien, Admin)
-7. **Proses Pembayaran** (Admin) — <<include>> → **Generate Invoice**
+7. **Proses Pembayaran** (Admin) — <<include>> Generate Invoice
 8. **Lihat Laporan Keuangan** (Admin)
-9. **Lihat Riwayat Medis** (Dokter) — <<extend>> → **Cetak Surat Rujukan** (opsional)
+9. **Lihat Riwayat Medis** (Dokter) — <<extend>> Cetak Surat Rujukan (opsional)
 10. **Reschedule Appointment** (Pasien)
 
 **2. SRP & OCP pada Modul Antrian:**
 
 **SRP:**
 ```java
-class QueueManager        → hanya mengelola antrian (tambah, hapus, reorder)
-class QueueDisplay        → hanya menampilkan nomor antrian di layar monitor
-class QueueNotification   → hanya kirim SMS/push notification saat nomor dipanggil
-class QueueAnalytics      → hanya menghitung rata-rata waktu tunggu
+class QueueManager        // hanya mengelola antrian (tambah, hapus, reorder)
+class QueueDisplay        // hanya menampilkan nomor antrian di layar monitor
+class QueueNotification   // hanya kirim SMS/push notification saat nomor dipanggil
+class QueueAnalytics      // hanya menghitung rata-rata waktu tunggu
 ```
 Setiap class punya **satu alasan untuk berubah**: jika tampilan monitor diubah, hanya QueueDisplay yang dimodifikasi.
 
@@ -885,7 +885,7 @@ class VIPQueue implements QueueStrategy {
 ## Soal 4.1 — Platform Streaming "IndoFlix"
 
 ### Referensi Diagram — Microservices Architecture:
-![Microservices Architecture — E-Commerce Platform](SOFENG/diagrams/architecture_microservice.png)
+![Microservices Architecture - E-Commerce Platform](SOFENG/diagrams/architecture_microservice.png)
 
 ### Case Study:
 > Startup **IndoFlix** ingin membangun platform **video streaming** lokal untuk konten Indonesia. Fitur: browse katalog film, streaming video, rekomendasi personalisasi, subscription management, dan review/rating. Target: 500.000 user di tahun pertama, 5 juta di tahun ketiga.
@@ -911,11 +911,11 @@ class VIPQueue implements QueueStrategy {
 | Notification Service | Email, push notification | Redis Queue | Node.js |
 
 **Perbandingan dengan Monolithic:**
-| Aspek | Microservices ✅ | Monolithic ❌ |
+| Aspek | Microservices | Monolithic |
 |-------|-----------------|-------------|
 | Scaling | Scale Streaming Service saat peak (malam hari) tanpa scale Review | Harus scale seluruh app |
 | Technology | Python untuk ML Recommendation, Go untuk high-performance Streaming | Satu stack untuk semua |
-| Fault Isolation | Streaming down ≠ Login down | Satu error → seluruh platform down |
+| Fault Isolation | Streaming down =/= Login down | Satu error -> seluruh platform down |
 | Deployment | Deploy update Catalog tanpa restart Streaming | Harus redeploy seluruh app |
 | Tim | Tim Streaming fokus Go, Tim Recommendation fokus Python | Semua developer di satu codebase |
 
@@ -990,7 +990,7 @@ di malam hari (19:00-23:00) dengan traffic 10x dari rata-rata.
 ## Keputusan
 Menggunakan Microservices Architecture dengan:
 - API Gateway (Kong) sebagai entry point
-- Event-driven async communication via Apache Kafka untuk notifikasi dan analytics
+- Event-driven async communication via Apache Kafka
 - Synchronous REST API untuk real-time operations (login, streaming)
 
 ## Alasan
@@ -1023,23 +1023,23 @@ Menggunakan Microservices Architecture dengan:
 **1. Layered Architecture UniCore:**
 
 ```
-┌─────────────────────────────────────────────┐
-│         PRESENTATION LAYER                   │
-│  Web Portal Mahasiswa, Portal Dosen,         │
-│  Admin Dashboard, Mobile App                 │
-├─────────────────────────────────────────────┤
-│         BUSINESS LOGIC LAYER                 │
-│  AkademikService, KeuanganService,           │
-│  KepegawaianService, PerpustakaanService     │
-├─────────────────────────────────────────────┤
-│         DATA ACCESS LAYER                    │
-│  AkademikRepository, KeuanganRepository,     │
-│  KepegawaianRepository, PerpustakaanRepo     │
-├─────────────────────────────────────────────┤
-│         DATABASE LAYER                       │
-│  PostgreSQL (utama), Redis (cache),          │
-│  MinIO (file storage untuk dokumen)          │
-└─────────────────────────────────────────────┘
++---------------------------------------------+
+|         PRESENTATION LAYER                   |
+|  Web Portal Mahasiswa, Portal Dosen,         |
+|  Admin Dashboard, Mobile App                 |
++---------------------------------------------+
+|         BUSINESS LOGIC LAYER                 |
+|  AkademikService, KeuanganService,           |
+|  KepegawaianService, PerpustakaanService     |
++---------------------------------------------+
+|         DATA ACCESS LAYER                    |
+|  AkademikRepository, KeuanganRepository,     |
+|  KepegawaianRepository, PerpustakaanRepo     |
++---------------------------------------------+
+|         DATABASE LAYER                       |
+|  PostgreSQL (utama), Redis (cache),          |
+|  MinIO (file storage untuk dokumen)          |
++---------------------------------------------+
 ```
 
 | Layer | Tanggung Jawab | Contoh |
@@ -1054,7 +1054,7 @@ Menggunakan Microservices Architecture dengan:
 | View | Stakeholder | Diagram | Konteks UniCore |
 |------|------------|---------|----------------|
 | **Logical View** | End-user, analyst | Class Diagram, Package Diagram | Package: Akademik, Keuangan, Kepegawaian, Perpustakaan. Class: Mahasiswa, Dosen, MataKuliah, SPP |
-| **Process View** | Integrator, engineer | Activity, Sequence Diagram | Proses KRS: Login → Pilih MK → Validasi Prasyarat → Konfirmasi → Update SKS. Concurrent access 30K mahasiswa |
+| **Process View** | Integrator, engineer | Activity, Sequence Diagram | Proses KRS: Login -> Pilih MK -> Validasi Prasyarat -> Konfirmasi -> Update SKS. Concurrent access 30K mahasiswa |
 | **Development View** | Programmer, manager | Component, Package Diagram | Module Akademik (Java/Spring), Module Keuangan (Java/Spring), Shared Library (common utils) |
 | **Physical View** | System engineer | Deployment Diagram | Web Server (Nginx), App Server (Tomcat cluster), DB Server (PostgreSQL HA), Redis Cluster |
 | **Scenarios** | Semua | Use Case Diagram | UC: Isi KRS, Bayar SPP, Input Nilai, Pinjam Buku — menghubungkan semua view |
@@ -1148,7 +1148,7 @@ StudentRepository repo = new LoggingStudentRepository(
 **1. Pipe and Filter untuk Compiler LangX:**
 
 ```
-Source Code → [Lexer] → tokens → [Parser] → AST → [Semantic Analyzer] → annotated AST → [Optimizer] → optimized AST → [Code Generator] → Bytecode
+Source Code -> [Lexer] -> tokens -> [Parser] -> AST -> [Semantic Analyzer] -> annotated AST -> [Optimizer] -> optimized AST -> [Code Generator] -> Bytecode
 ```
 
 | Filter | Input | Output | Fungsi |
@@ -1167,7 +1167,7 @@ Source Code → [Lexer] → tokens → [Parser] → AST → [Semantic Analyzer] 
 
 **2. Pipe and Filter vs Repository:**
 
-| Aspek | Pipe and Filter ✅ | Repository ⚠️ |
+| Aspek | Pipe and Filter | Repository |
 |-------|-------------------|-------------|
 | Data flow | Sequential, satu arah — sesuai kompilasi | Shared data store — tidak natural untuk kompilasi |
 | Independensi | Setiap filter independen | Semua komponen bergantung pada repository |
@@ -1210,7 +1210,7 @@ class StatementNodeFactory extends ASTNodeFactory {
 ## Soal 4.4 — Sistem IoT Smart Home "HomeSense"
 
 ### Case Study:
-> Perusahaan **HomeSense** ingin membangun platform **smart home** yang menghubungkan sensor suhu, lampu pintar, kamera, dan kunci pintar. Sensor mengirim data setiap 5 detik. Notifikasi real-time harus dikirim ke pengguna saat terjadi anomali (suhu > 40°C, gerakan terdeteksi saat mode Away).
+> Perusahaan **HomeSense** ingin membangun platform **smart home** yang menghubungkan sensor suhu, lampu pintar, kamera, dan kunci pintar. Sensor mengirim data setiap 5 detik. Notifikasi real-time harus dikirim ke pengguna saat terjadi anomali (suhu > 40C, gerakan terdeteksi saat mode Away).
 
 ### Pertanyaan:
 1. **[10 poin]** Mengapa **Event-Driven Architecture** adalah pilihan terbaik? Jelaskan komponen Event Producer, Consumer, dan Event Bus!
@@ -1222,10 +1222,10 @@ class StatementNodeFactory extends ASTNodeFactory {
 **1. Event-Driven Architecture untuk HomeSense:**
 
 ```
-[Sensor Suhu]──event─→┐
-[Lampu Pintar]──event──┤       ┌──→[Notification Consumer] → Push to Mobile
-[Kamera]──event────────┤──→[Event Bus]──→[Analytics Consumer] → Dashboard
-[Kunci Pintar]──event──┘  (Kafka/    └──→[Automation Consumer] → Trigger Rules
+[Sensor Suhu]--event-->+
+[Lampu Pintar]--event--+       +-->[ Notification Consumer ] -> Push to Mobile
+[Kamera]--event--------+-->[ Event Bus ]-->[ Analytics Consumer ] -> Dashboard
+[Kunci Pintar]--event--+  (Kafka/    +-->[ Automation Consumer ] -> Trigger Rules
                           RabbitMQ)
 ```
 
@@ -1233,25 +1233,25 @@ class StatementNodeFactory extends ASTNodeFactory {
 |----------|-------|---------------------|
 | **Event Producer** | Menghasilkan event | Sensor suhu: `{type:"temperature", value:42, room:"kitchen"}` |
 | **Event Bus** | Routing event ke consumer yang tepat | Kafka topic: `sensor-data`, `alarm-events`, `device-control` |
-| **Event Consumer** | Memproses event | NotificationConsumer: kirim alert jika suhu > 40°C |
+| **Event Consumer** | Memproses event | NotificationConsumer: kirim alert jika suhu > 40C |
 
 **Mengapa Event-Driven?**
-- **Asynchronous**: Sensor kirim data tanpa menunggu respons → tidak blocking
+- **Asynchronous**: Sensor kirim data tanpa menunggu respons — tidak blocking
 - **Loose coupling**: Sensor tidak perlu tahu siapa yang memproses datanya
 - **Scalable**: Tambah consumer baru tanpa mengubah producer
-- **Real-time**: Event diproses begitu masuk → cocok untuk notifikasi anomali
+- **Real-time**: Event diproses begitu masuk — cocok untuk notifikasi anomali
 
 **2. Event-Driven vs Client-Server:**
 
-| Aspek | Event-Driven ✅ | Client-Server ❌ |
+| Aspek | Event-Driven | Client-Server |
 |-------|----------------|-----------------|
 | Communication | Asynchronous, push-based | Request-response, pull-based |
 | Latency | Near real-time (milliseconds) | Tergantung polling interval |
 | Scalability | Horizontal scaling via partitioning | Server bottleneck jika banyak sensor |
-| IoT Suitability | Sensor kirim event kapanpun → natural | Sensor harus poll server → waste bandwidth |
-| Coupling | Loose (producer ≠ consumer) | Tight (client harus tahu server address) |
+| IoT Suitability | Sensor kirim event kapanpun — natural | Sensor harus poll server — waste bandwidth |
+| Coupling | Loose (producer != consumer) | Tight (client harus tahu server address) |
 
-Client-Server mengharuskan sensor **polling** server setiap detik untuk cek perintah → **wasteful** untuk device IoT dengan battery terbatas.
+Client-Server mengharuskan sensor **polling** server setiap detik untuk cek perintah — **wasteful** untuk device IoT dengan battery terbatas.
 
 **3. Observer Pattern untuk Notifikasi Anomali:**
 ```java
@@ -1278,7 +1278,7 @@ class SensorMonitor {
 
 class PushNotificationService implements AnomalyObserver {
     void onAnomaly(AnomalyEvent event) {
-        sendPushToOwner("⚠️ Anomali: " + event.type + " di " + event.room);
+        sendPushToOwner("Warning: " + event.type + " di " + event.room);
     }
 }
 
@@ -1313,24 +1313,24 @@ class LoggingService implements AnomalyObserver {
 
 **Macro-level: Microservices**
 ```
-[Mobile App] → [API Gateway] → ┌─ User Service
-                                ├─ Ride Service
-                                ├─ Matching Service
-                                ├─ Pricing Service
-                                ├─ Payment Service
-                                ├─ Tracking Service
-                                └─ Rating Service
+[Mobile App] -> [API Gateway] -> +-- User Service
+                                 +-- Ride Service
+                                 +-- Matching Service
+                                 +-- Pricing Service
+                                 +-- Payment Service
+                                 +-- Tracking Service
+                                 +-- Rating Service
 ```
 
 **Micro-level: MVC di dalam setiap service**
 ```
 Ride Service:
-├── Controller (RideController)  → Menerima HTTP request, routing
-│   └── POST /rides, GET /rides/{id}, PUT /rides/{id}/cancel
-├── Model (Ride, Driver, Route)  → Business logic dan data
-│   └── calculateETA(), matchDriver(), updateStatus()
-└── View (JSON Response)         → Format response API
-    └── { rideId, status, driverInfo, eta, price }
++-- Controller (RideController)  -> Menerima HTTP request, routing
+|   +-- POST /rides, GET /rides/{id}, PUT /rides/{id}/cancel
++-- Model (Ride, Driver, Route)  -> Business logic dan data
+|   +-- calculateETA(), matchDriver(), updateStatus()
++-- View (JSON Response)         -> Format response API
+    +-- { rideId, status, driverInfo, eta, price }
 ```
 
 Setiap microservice **internal** mengikuti pola MVC sehingga kode terstruktur dan maintainable, sementara **eksternal** berinteraksi via REST API.
@@ -1342,9 +1342,9 @@ Setiap microservice **internal** mengikuti pola MVC sehingga kode terstruktur da
 interface PricingStrategy {
     double calculatePrice(Route route, TimeContext context);
 }
-class NormalPricing implements PricingStrategy { /* base rate × distance */ }
-class SurgePricing implements PricingStrategy { /* base × distance × surge_multiplier */ }
-class PromoPricing implements PricingStrategy { /* (base × distance) - discount */ }
+class NormalPricing implements PricingStrategy { /* base rate x distance */ }
+class SurgePricing implements PricingStrategy { /* base x distance x surge_multiplier */ }
+class PromoPricing implements PricingStrategy { /* (base x distance) - discount */ }
 
 // Runtime selection
 PricingStrategy strategy = context.isPeakHour() ? new SurgePricing() : new NormalPricing();
@@ -1432,20 +1432,20 @@ class BookingFacade {
 **1. COCOMO Estimation (Embedded Mode):**
 
 ```
-Effort = a × (KLOC)^b = 3.6 × (60)^1.20
-       = 3.6 × 120.56
+Effort = a x (KLOC)^b = 3.6 x (60)^1.20
+       = 3.6 x 120.56
        = 434 person-months
 
-Duration = c × (Effort)^d = 2.5 × (434)^0.32
-         = 2.5 × 6.67
-         = 16.7 months ≈ 17 bulan
+Duration = c x (Effort)^d = 2.5 x (434)^0.32
+         = 2.5 x 6.67
+         = 16.7 months = sekitar 17 bulan
 ```
 
 **Analisis Feasibility:**
 - Effort = 434 person-months, Tim = 12 developer
 - Effort per orang = 434 / 12 = **36.2 bulan per orang**
 - Durasi COCOMO = **17 bulan**, deadline = **12 bulan**
-- **TIDAK FEASIBLE** ❌ — gap 5 bulan
+- **TIDAK FEASIBLE** — gap 5 bulan
 - **Rekomendasi**: 
   - Tambah developer menjadi 18-20 (hati-hati Brooks's Law!)
   - Kurangi scope (incremental delivery)
@@ -1469,20 +1469,20 @@ J: ES=22, EF=25   (pred: I)
 
 **Backward Pass (LF_J = 25):**
 ```
-J: LF=25, LS=22   (Slack=0) ★
-I: LF=22, LS=18   (Slack=0) ★
-F: LF=18, LS=15   (Slack=0) ★
-G: LF=18, LS=15   (Slack=0) ★
+J: LF=25, LS=22   (Slack=0) *
+I: LF=22, LS=18   (Slack=0) *
+F: LF=18, LS=15   (Slack=0) *
+G: LF=18, LS=15   (Slack=0) *
 H: LF=18, LS=16   (Slack=1)
 E: LF=18, LS=12   (Slack=4)
-D: LF=15, LS=7    (Slack=0) ★
+D: LF=15, LS=7    (Slack=0) *
 C: LF=12, LS=8    (Slack=4)
-B: LF=7,  LS=4    (Slack=0) ★
-A: LF=4,  LS=0    (Slack=0) ★
+B: LF=7,  LS=4    (Slack=0) *
+A: LF=4,  LS=0    (Slack=0) *
 ```
 
-**Critical Path: A → B → D → F → I → J** (atau A → B → D → G → I → J)
-**Durasi minimum: 25 minggu ≈ 6.25 bulan**
+**Critical Path: A -> B -> D -> F -> I -> J** (atau A -> B -> D -> G -> I -> J)
+**Durasi minimum: 25 minggu = sekitar 6.25 bulan**
 
 **3. Tabel RMMM:**
 
@@ -1512,11 +1512,11 @@ A: LF=4,  LS=0    (Slack=0) ★
 
 **1. COCOMO (Organic Mode):**
 ```
-Effort = 2.4 × (25)^1.05 = 2.4 × 27.6 = 66.3 person-months
-Duration = 2.5 × (66.3)^0.38 = 2.5 × 5.14 = 12.8 months ≈ 13 bulan
+Effort = 2.4 x (25)^1.05 = 2.4 x 27.6 = 66.3 person-months
+Duration = 2.5 x (66.3)^0.38 = 2.5 x 5.14 = 12.8 months = sekitar 13 bulan
 ```
-- Tim 6 developer → Effort per orang: 66.3/6 = **11 bulan per orang**
-- Durasi COCOMO: **13 bulan** — feasible jika deadline > 13 bulan ✅
+- Tim 6 developer -> Effort per orang: 66.3/6 = **11 bulan per orang**
+- Durasi COCOMO: **13 bulan** — feasible jika deadline > 13 bulan
 
 **2. Earned Value Analysis:**
 ```
@@ -1525,17 +1525,17 @@ CPI = BCWP / ACWP = 150 / 220 = 0.68
 ```
 
 **Interpretasi:**
-- **SPI = 0.75 < 1** → Proyek **behind schedule** ❌ (hanya 75% pekerjaan selesai dari yang direncanakan)
-- **CPI = 0.68 < 1** → Proyek **over budget** ❌ (efisiensi biaya hanya 68%, setiap Rp 1 yang dikeluarkan hanya menghasilkan Rp 0.68 pekerjaan)
+- **SPI = 0.75 < 1** -> Proyek **behind schedule** (hanya 75% pekerjaan selesai dari yang direncanakan)
+- **CPI = 0.68 < 1** -> Proyek **over budget** (efisiensi biaya hanya 68%, setiap Rp 1 yang dikeluarkan hanya menghasilkan Rp 0.68 pekerjaan)
 - **Status: KRITIS** — Proyek tertinggal jadwal DAN melebihi anggaran
 
 **3. Risiko & Recovery:**
 
 | # | Risiko (Berdasarkan EVA) | Rekomendasi Recovery |
 |---|------------------------|---------------------|
-| 1 | **Schedule overrun** (SPI 0.75) → fitur delivery terlambat | Prioritaskan fitur core (MoSCoW), **defer** fitur "Could/Won't" ke Phase 2. Tambah 1-2 developer jika budget tersedia |
-| 2 | **Cost overrun** (CPI 0.68) → boros di development | Audit: kenapa ACWP tinggi? Kemungkinan: overtime berlebihan, rework karena requirement ambigu. **Clarify requirement** segera untuk reduce rework |
-| 3 | **Quality compromise** → karena terburu-buru, testing dikorbankan | Jangan kurangi testing! Implementasi automated testing untuk hemat waktu manual QA. Technical debt sekarang = mahal di masa depan |
+| 1 | **Schedule overrun** (SPI 0.75) -> fitur delivery terlambat | Prioritaskan fitur core (MoSCoW), **defer** fitur "Could/Won't" ke Phase 2. Tambah 1-2 developer jika budget tersedia |
+| 2 | **Cost overrun** (CPI 0.68) -> boros di development | Audit: kenapa ACWP tinggi? Kemungkinan: overtime berlebihan, rework karena requirement ambigu. **Clarify requirement** segera untuk reduce rework |
+| 3 | **Quality compromise** -> karena terburu-buru, testing dikorbankan | Jangan kurangi testing! Implementasi automated testing untuk hemat waktu manual QA. Technical debt sekarang = mahal di masa depan |
 
 ---
 
@@ -1554,32 +1554,32 @@ CPI = BCWP / ACWP = 150 / 220 = 0.68
 **1. Work Breakdown Structure (WBS):**
 ```
 DataShift Project
-├── Phase 1: Assessment (Minggu 1-3)
-│   ├── Audit database legacy (schema, data, dependencies)
-│   ├── Mapping tabel → PostgreSQL equivalents
-│   └── Identify stored procedure conversion needs
-├── Phase 2: Design (Minggu 4-6)
-│   ├── Design target schema PostgreSQL
-│   ├── Design ETL (Extract-Transform-Load) pipeline
-│   └── Design rollback strategy
-├── Phase 3: Development (Minggu 7-14)
-│   ├── Build ETL scripts
-│   ├── Convert 500 stored procedures ke PostgreSQL functions
-│   ├── Build data validation tools
-│   └── Build monitoring dashboard
-├── Phase 4: Testing (Minggu 15-20)
-│   ├── Unit testing setiap stored procedure conversion
-│   ├── Data integrity testing (compare source vs target)
-│   ├── Performance testing (query benchmark)
-│   └── Stress testing (50 juta records)
-├── Phase 5: Migration Execution (Minggu 21-23)
-│   ├── Dry run migration (staging)
-│   ├── Go-Live migration (production, weekend window)
-│   └── Post-migration verification
-└── Phase 6: Stabilization (Minggu 24-26)
-    ├── Monitor production performance
-    ├── Fix post-migration bugs
-    └── Decommission legacy mainframe
++-- Phase 1: Assessment (Minggu 1-3)
+|   +-- Audit database legacy (schema, data, dependencies)
+|   +-- Mapping tabel -> PostgreSQL equivalents
+|   +-- Identify stored procedure conversion needs
++-- Phase 2: Design (Minggu 4-6)
+|   +-- Design target schema PostgreSQL
+|   +-- Design ETL (Extract-Transform-Load) pipeline
+|   +-- Design rollback strategy
++-- Phase 3: Development (Minggu 7-14)
+|   +-- Build ETL scripts
+|   +-- Convert 500 stored procedures ke PostgreSQL functions
+|   +-- Build data validation tools
+|   +-- Build monitoring dashboard
++-- Phase 4: Testing (Minggu 15-20)
+|   +-- Unit testing setiap stored procedure conversion
+|   +-- Data integrity testing (compare source vs target)
+|   +-- Performance testing (query benchmark)
+|   +-- Stress testing (50 juta records)
++-- Phase 5: Migration Execution (Minggu 21-23)
+|   +-- Dry run migration (staging)
+|   +-- Go-Live migration (production, weekend window)
+|   +-- Post-migration verification
++-- Phase 6: Stabilization (Minggu 24-26)
+    +-- Monitor production performance
+    +-- Fix post-migration bugs
+    +-- Decommission legacy mainframe
 ```
 
 **2. Risk Table:**
@@ -1602,7 +1602,7 @@ DataShift Project
 | **Who** | 5 DBA (migration execution), 3 developer (ETL + SP conversion), 1 PM |
 | **Where** | Tim on-site di kantor pusat (akses mainframe), cloud di AWS |
 | **How** | ETL pipeline (Apache NiFi), SP conversion manual + automated tools |
-| **How much** | 8 orang × 6 bulan = 48 person-months, AWS infrastructure ~$5K/bulan |
+| **How much** | 8 orang x 6 bulan = 48 person-months, AWS infrastructure ~$5K/bulan |
 
 ---
 
@@ -1615,7 +1615,7 @@ DataShift Project
 > - External Inquiries (EQ): 8 (Simple)
 > - Internal Logical Files (ILF): 6 (Average)
 > - External Interface Files (EIF): 4 (Complex)
-> - Sum of 14 General System Characteristics (ΣFi) = 52
+> - Sum of 14 General System Characteristics (SFi) = 52
 
 ### Pertanyaan:
 1. **[5 poin]** Hitung Function Points (FP) untuk KasirPro!
@@ -1630,32 +1630,32 @@ DataShift Project
 
 | Tipe | Count | Complexity | Weight | Total |
 |------|-------|------------|--------|-------|
-| EI | 15 | Average | 4 | 15 × 4 = 60 |
-| EO | 10 | Complex | 7 | 10 × 7 = 70 |
-| EQ | 8 | Simple | 3 | 8 × 3 = 24 |
-| ILF | 6 | Average | 10 | 6 × 10 = 60 |
-| EIF | 4 | Complex | 10 | 4 × 10 = 40 |
+| EI | 15 | Average | 4 | 15 x 4 = 60 |
+| EO | 10 | Complex | 7 | 10 x 7 = 70 |
+| EQ | 8 | Simple | 3 | 8 x 3 = 24 |
+| ILF | 6 | Average | 10 | 6 x 10 = 60 |
+| EIF | 4 | Complex | 10 | 4 x 10 = 40 |
 | **UFP** | | | | **254** |
 
 **Langkah 2: Hitung Value Adjustment Factor (VAF)**
 ```
-FP = UFP × (0.65 + 0.01 × ΣFi)
-   = 254 × (0.65 + 0.01 × 52)
-   = 254 × (0.65 + 0.52)
-   = 254 × 1.17
-   = 297.18 ≈ 297 FP
+FP = UFP x (0.65 + 0.01 x SFi)
+   = 254 x (0.65 + 0.01 x 52)
+   = 254 x (0.65 + 0.52)
+   = 254 x 1.17
+   = 297.18 = sekitar 297 FP
 ```
 
 **2. Effort & Duration:**
 ```
 Effort = FP / Productivity Rate = 297 / 15 = 19.8 person-months
 
-Duration = Effort / Team Size = 19.8 / 10 = 1.98 bulan ≈ 2 bulan
+Duration = Effort / Team Size = 19.8 / 10 = 1.98 bulan = sekitar 2 bulan
 ```
 
 **Analisis Feasibility:**
-- Dengan 10 developer dan effort 19.8 person-months → **durasi ~2 bulan**
-- Deadline 8 bulan → **SANGAT FEASIBLE** ✅
+- Dengan 10 developer dan effort 19.8 person-months -> **durasi ~2 bulan**
+- Deadline 8 bulan -> **SANGAT FEASIBLE**
 - Sisa waktu bisa digunakan untuk testing tambahan, training user di 100 toko, dan phased deployment
 
 **3. FP vs LOC:**
@@ -1705,7 +1705,7 @@ T2:  ES=3,  EF=5   (pred: T1)
 T3:  ES=3,  EF=5   (pred: T1)
 T4:  ES=5,  EF=10  (pred: T2)
 T5:  ES=5,  EF=9   (pred: T2)
-T6:  ES=5,  EF=8   (pred: T2,T3 → max(5,5)=5)
+T6:  ES=5,  EF=8   (pred: T2,T3 -> max(5,5)=5)
 T7:  ES=5,  EF=11  (pred: T3)
 T8:  ES=11, EF=15  (ES = max(EF_T4, EF_T5, EF_T6, EF_T7) = max(10,9,8,11) = 11)
 T9:  ES=15, EF=17  (pred: T8)
@@ -1714,37 +1714,30 @@ T10: ES=17, EF=18  (pred: T9)
 
 **Backward Pass (LF_T10 = 18):**
 ```
-T10: LF=18, LS=17  (Slack=0) ★
-T9:  LF=17, LS=15  (Slack=0) ★
-T8:  LF=15, LS=11  (Slack=0) ★
-T7:  LF=11, LS=5   (Slack=0) ★
+T10: LF=18, LS=17  (Slack=0) *
+T9:  LF=17, LS=15  (Slack=0) *
+T8:  LF=15, LS=11  (Slack=0) *
+T7:  LF=11, LS=5   (Slack=0) *
 T6:  LF=11, LS=8   (Slack=3)
 T5:  LF=11, LS=7   (Slack=2)
 T4:  LF=11, LS=6   (Slack=1)
-T3:  LF=5,  LS=3   (Slack=0) ★
-T2:  LF=5,  LS=3   (Slack=0) ★ (LF = min(LS_T4, LS_T5, LS_T6) = min(6,7,8) = 6... 
-                                  WAIT — juga pred to T6, T4, T5)
+T3:  LF=5,  LS=3   (Slack=0) *
+T2:  LF=6,  LS=4   (Slack=1)
+T1:  LF=3,  LS=0   (Slack=0) *
 ```
 
-*Recalculating more carefully:*
-```
-T2: LF = min(LS_T4, LS_T5, LS_T6) = min(6, 7, 8) = 6, LS = 6-2 = 4, Slack = 4-3 = 1
-T3: LF = min(LS_T6, LS_T7) = min(8, 5) = 5, LS = 5-2 = 3, Slack = 3-3 = 0 ★
-T1: LF = min(LS_T2, LS_T3) = min(4, 3) = 3, LS = 3-3 = 0, Slack = 0 ★
-```
-
-**Critical Path: T1 → T3 → T7 → T8 → T9 → T10**
-**Durasi minimum: 18 minggu ≈ 4.5 bulan**
+**Critical Path: T1 -> T3 -> T7 -> T8 -> T9 -> T10**
+**Durasi minimum: 18 minggu = sekitar 4.5 bulan**
 
 **2. Task dengan Slack Terbesar:**
-- **T6 (CRM Integration)**: Slack = 3 minggu → bisa terlambat 3 minggu tanpa mempengaruhi proyek
+- **T6 (CRM Integration)**: Slack = 3 minggu -> bisa terlambat 3 minggu tanpa mempengaruhi proyek
 - **T5 (TMS Integration)**: Slack = 2 minggu
 - **T4 (WMS Integration)**: Slack = 1 minggu
 
 **Implikasi Resource Allocation:**
 - Developer yang dialokasikan ke T6 (CRM) bisa **dipinjam sementara** ke T7 (ERP, critical path) untuk mempercepat critical path
-- T6 bisa dimulai lebih lambat tanpa risiko → fleksibilitas staffing
-- Fokuskan resource terbaik ke critical path (T1 → T3 → T7)
+- T6 bisa dimulai lebih lambat tanpa risiko -> fleksibilitas staffing
+- Fokuskan resource terbaik ke critical path (T1 -> T3 -> T7)
 
 **3. Earned Value Analysis:**
 ```
@@ -1753,8 +1746,8 @@ CPI = BCWP / ACWP = 250 / 280 = 0.89
 ```
 
 **Analisis:**
-- **SPI = 0.83** → Behind schedule 17% — proyek tertinggal
-- **CPI = 0.89** → Over budget 11% — efisiensi biaya 89%
+- **SPI = 0.83** -> Behind schedule 17% — proyek tertinggal
+- **CPI = 0.89** -> Over budget 11% — efisiensi biaya 89%
 - **Status**: Schedule delay lebih mengkhawatirkan daripada cost overrun
 
 **Rekomendasi:**
@@ -1764,10 +1757,10 @@ CPI = BCWP / ACWP = 250 / 280 = 0.89
 
 ---
 
-> **🎯 Tips Menjawab Soal UTS:**
+> **Tips Menjawab Soal UTS:**
 > 1. Selalu **kaitkan teori dengan case study** — jangan hanya menghafal definisi
 > 2. Gunakan **tabel perbandingan** saat membandingkan 2+ konsep
 > 3. Untuk diagram UML: gambar komponen utama, relasi, dan multiplicity
 > 4. Untuk COCOMO: **tunjukkan rumus dan perhitungan step by step**
 > 5. Untuk Critical Path: **selalu lakukan Forward + Backward Pass** dan tunjukkan Slack setiap task
-> 6. Untuk risk: gunakan format tabel **Probabilitas × Impact = Risk Exposure**
+> 6. Untuk risk: gunakan format tabel **Probabilitas x Impact = Risk Exposure**

@@ -265,6 +265,8 @@
         .card-teal::before { background: linear-gradient(90deg, var(--accent-teal), transparent); }
         .card-purple .card-icon { background: rgba(139, 92, 246, 0.15); }
         .card-purple::before { background: linear-gradient(90deg, var(--accent-purple), transparent); }
+        .card-orange .card-icon { background: rgba(245, 158, 11, 0.15); }
+        .card-orange::before { background: linear-gradient(90deg, var(--accent-orange), transparent); }
 
         .card-title {
             font-size: 15px;
@@ -665,17 +667,17 @@
     <!-- STATS -->
     <div class="stats-bar">
         <div class="stat-item">
-            <div class="stat-number blue">4</div>
+            <div class="stat-number blue">5</div>
             <div class="stat-label">Mata Kuliah</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-            <div class="stat-number purple">12</div>
+            <div class="stat-number purple">16</div>
             <div class="stat-label">Dokumen Materi</div>
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-            <div class="stat-number teal">2</div>
+            <div class="stat-number teal">3</div>
             <div class="stat-label">UTS Siap</div>
         </div>
         <div class="stat-divider"></div>
@@ -692,8 +694,8 @@
             <div class="subject-card card-blue" onclick="openSubject('biology')">
                 <div class="card-icon">🧬</div>
                 <div class="card-title">Computational Biology</div>
-                <div class="card-subtitle">Dogma Sentral, Mutasi, RNA Splicing, Bioinformatika</div>
-                <div class="card-badge">📝 UTS • 4 dokumen</div>
+                <div class="card-subtitle">Dogma Sentral, Mutasi, Gene Structure, Bioinformatika, NCBI</div>
+                <div class="card-badge">📝 UTS • 2 dokumen</div>
             </div>
             <div class="subject-card card-red" onclick="openSubject('sna')">
                 <div class="card-icon">🖧</div>
@@ -711,6 +713,12 @@
                 <div class="card-icon">🛡️</div>
                 <div class="card-title">Software Security</div>
                 <div class="card-subtitle">Threat Modeling, STRIDE, DREAD, Attack Tree</div>
+                <div class="card-badge">📝 UTS • 2 dokumen</div>
+            </div>
+            <div class="subject-card card-orange" onclick="openSubject('cyberlaw')">
+                <div class="card-icon">⚖️</div>
+                <div class="card-title">Cyber Law</div>
+                <div class="card-subtitle">UU ITE, UU PDP, Kebebasan Ekspresi vs Privasi, Studi Kasus</div>
                 <div class="card-badge">📝 UTS • 2 dokumen</div>
             </div>
         </div>
@@ -775,6 +783,7 @@
 <script src="quiz_sna.js"></script>
 <script src="quiz_sofeng.js"></script>
 <script src="quiz_softsec.js"></script>
+<script src="quiz_cyberlaw.js"></script>
 <script>
 // ============================================================
 // DATA: All study material files organized by subject
@@ -786,10 +795,8 @@ const subjects = {
         color: 'blue',
         folder: 'BIOLOGY',
         files: [
-            { name: 'UTS_COMPUTATIONAL_BIOLOGY_MATERI.md', label: 'Materi Utama Biologi Komputasi', type: 'md', size: '9 KB' },
-            { name: 'LATIHAN_SOAL_COMP_BIO.md', label: 'Latihan Soal & Pembahasan Lengkap', type: 'md', size: '22 KB' },
-            { name: 'UTS_COMPUTATIONAL_BIOLOGY_MATERI.docx', label: 'Materi Utama (Word)', type: 'docx', size: '37 KB' },
-            { name: 'LATIHAN_SOAL_COMP_BIO.docx', label: 'Latihan Soal (Word)', type: 'docx', size: '957 KB' },
+            { name: 'UTS_COMPUTATIONAL_BIOLOGY_MATERI.md', label: 'Materi Utama Biologi Komputasi (Kisi-kisi UTS)', type: 'md', size: '28 KB' },
+            { name: 'LATIHAN_SOAL_COMP_BIO.md', label: 'Latihan Soal & Pembahasan (50 Soal)', type: 'md', size: '45 KB' },
         ]
     },
     sna: {
@@ -836,6 +843,16 @@ const subjects = {
         files: [
             { name: 'Materi_UTS_Software_Security_BINUS.md', label: 'Materi UTS Software Security', type: 'md', size: '24 KB' },
             { name: 'Materi_UTS_Software_Security_BINUS.docx', label: 'Materi UTS (Word)', type: 'docx', size: '46 KB' },
+        ]
+    },
+    cyberlaw: {
+        icon: '⚖️',
+        name: 'Cyber Law',
+        color: 'orange',
+        folder: 'CYBERLAW',
+        files: [
+            { name: 'UTS_CYBER_LAW_MATERI.md', label: 'Materi Utama Cyber Law (Kisi-kisi UTS)', type: 'md', size: '32 KB' },
+            { name: 'LATIHAN_SOAL_CYBER_LAW.md', label: 'Latihan Soal & Pembahasan (30 Soal)', type: 'md', size: '38 KB' },
         ]
     },
 };
@@ -1005,6 +1022,7 @@ function startQuiz() {
     if (typeof quiz_biology !== 'undefined' && subjectName.includes('biology')) rawQuestions = quiz_biology;
     else if (typeof quiz_sna !== 'undefined' && subjectName.includes('admin')) rawQuestions = quiz_sna;
     else if (typeof quiz_sofeng !== 'undefined' && subjectName.includes('engineering')) rawQuestions = quiz_sofeng;
+    else if (typeof quiz_cyberlaw !== 'undefined' && subjectName.includes('law')) rawQuestions = quiz_cyberlaw;
     else if (typeof quiz_softsec !== 'undefined' && subjectName.includes('security')) rawQuestions = quiz_softsec;
     
     if (!rawQuestions || rawQuestions.length === 0) {
